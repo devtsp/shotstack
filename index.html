@@ -1,72 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="main.js" type="module" defer></script>
-		<link rel="stylesheet" href="styles.css" />
-		<title>Document</title>
-	</head>
-	<body>
-		<button id="edit">EDIT</button>
-		<div class="container">
-			<div class="edit-body">
-				<label for="edit-body"> Edit Body</label>
-				<textarea id="edit-body">
-          {
-            "timeline": {
-              "tracks": [
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="main.js" type="module" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="button-container">
+      <button id="submit">SUBMIT</button>
+      <img
+        id="render-spinner"
+        src="/loading-icon-product.png"
+        alt=""
+        class="spinner"
+      />
+    </div>
+    <textarea id="body">
+      {
+        "timeline": {
+          "tracks": [
+            {
+              "clips": [
                 {
-                  "clips": [
-                    {
-                      "start": 3,
-                      "length": 6,
-                      "transition": {
-                        "in": "slideLeft",
-                        "out": "wipeLeft"
-                      },
-                      "asset": {
-                        "type": "title",
-                        "text": "This was made with the shotstack API"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "clips": [
-                    {
-                      "start": 0,
-                      "length": 30,
-                      "asset": {
-                        "type": "image",
-                        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/A_moon.jpg/798px-A_moon.jpg"
-                      }
-                    }
-                  ]
+                  "start": 1,
+                  "length": 4,
+                  "transition": {
+                    "in": "slideLeft",
+                    "out": "wipeLeft"
+                  },
+                  "asset": {
+                    "type": "title",
+                    "text": "This was made with \n the shotstack API",
+                    "size": "medium",
+                    "color": "#290212",
+                    "style": "blockbuster"
+                  }
                 }
               ]
             },
-            "output": {
-              "format": "mp4",
-              "resolution": "sd"
+            {
+              "clips": [
+                {
+                  "start": 0,
+                  "length": 6,
+                  "asset": {
+                    "type": "image",
+                    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/A_moon.jpg/798px-A_moon.jpg"
+                  },
+                  "transition": {
+                    "in": "fade",
+                    "out": "fade"
+                  }
+                }
+              ]
             }
-          }
-        </textarea>
-			</div>
-			<div class="edit-result" id="edit-result"></div>
-		</div>
-		<div>
-			<button id="status">STATUS</button>
-			<label for="render-id-status">Render Result Id: </label>
-			<input type="text" id="render-id-status" />
-		</div>
-		<div id="status-result" class="container"></div>
-		<div>
-			<button id="get">GET</button>
-			<label for="render-id-get">Render Result Id: </label>
-			<input type="text" id="render-id-get" />
-		</div>
-		<div id="get-result" class="container"></div>
-	</body>
+          ]
+        },
+        "output": {
+          "format": "mp4",
+          "resolution": "sd"
+        }
+      }
+    </textarea>
+    <div class="button-container">
+      <button id="retrieve">RETRIEVE RENDER</button>
+      <img
+        src="/loading-icon-product.png"
+        alt=""
+        class="spinner"
+        id="result-spinner"
+      />
+    </div>
+    <div id="result">
+      <span id="status"></span>
+      <br />
+      <video height="480" controls>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </body>
 </html>
