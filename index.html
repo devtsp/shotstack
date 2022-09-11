@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="main.js" type="module" defer></script>
+		<link rel="stylesheet" href="styles.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button id="edit">EDIT</button>
+		<div class="container">
+			<div class="edit-body">
+				<label for="edit-body"> Edit Body</label>
+				<textarea id="edit-body">
+          {
+            "timeline": {
+              "tracks": [
+                {
+                  "clips": [
+                    {
+                      "start": 3,
+                      "length": 6,
+                      "transition": {
+                        "in": "slideLeft",
+                        "out": "wipeLeft"
+                      },
+                      "asset": {
+                        "type": "title",
+                        "text": "This was made with the shotstack API"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "clips": [
+                    {
+                      "start": 0,
+                      "length": 30,
+                      "asset": {
+                        "type": "image",
+                        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/A_moon.jpg/798px-A_moon.jpg"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "output": {
+              "format": "mp4",
+              "resolution": "sd"
+            }
+          }
+        </textarea>
+			</div>
+			<div class="edit-result" id="edit-result"></div>
+		</div>
+		<div>
+			<button id="status">STATUS</button>
+			<label for="render-id-status">Render Result Id: </label>
+			<input type="text" id="render-id-status" />
+		</div>
+		<div id="status-result" class="container"></div>
+		<div>
+			<button id="get">GET</button>
+			<label for="render-id-get">Render Result Id: </label>
+			<input type="text" id="render-id-get" />
+		</div>
+		<div id="get-result" class="container"></div>
+	</body>
+</html>
